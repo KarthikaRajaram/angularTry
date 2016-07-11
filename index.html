@@ -1,0 +1,171 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>BrandLookShop</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet/less" href="css/mainstyle.less" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper_container">
+        <!-- Header Starts -->
+        <header>
+            <div class="tophead">
+                <div class="container">
+                <nav><a href="#">Log In</a> <span>or</span> <a href="#">Create an Account</a></nav>
+                <nav class="pull-right"><a href="#cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+                    <div class="header-bar__module header-bar__search">
+                        <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
+                            <input type="search" name="q" value="" aria-label="Search our store" class="header-bar__search-input" placeholder="Search our store">
+                            <button type="submit" class="btn icon-fallback-text header-bar__search-submit">
+                              <span class="glyphicon glyphicon-search"></span>
+                              <span class="fallback-text">Search</span>
+                            </button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            </div>
+            <div class="bottomhead">
+                <div class="container">
+                <img src="assets/logo_new.png" alt="logo">
+                <div class="navbar pull-right">
+                    <div class="navbar-inner">
+                            <ul class="nav">
+                                <li><a href="#">Home</a></li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Women</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Causals</a></li>
+                                        <li><a href="#">Tees</a></li>
+                                        <li><a href="#">Tunics</a></li>
+                                        <li><a href="#">Handbags</a></li>
+                                        <li><a href="#">Shoes</a></li>
+                                        <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Designer</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Ethnic</a></li>
+                                                <li><a href="#">Western</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Ends -->
+        <div class="clearfix"></div>
+        <!-- Parallax Section Starts -->
+        <section>
+                
+                <!-- SLIDES START -->       
+                <div id="slide1">
+                    
+                </div> 
+
+                <div id="slide2">
+                    <div class="content" >
+                        <div class="quotes_container">
+                        <h3 class="quotes"></h3>
+                      <!-- <img src="assets/hot/hot10.png" align="left"/>  --><h4 class="author_name_gray"> </h4>
+                    </div> 
+                    </div> 
+                </div> 
+                
+                
+               <div id="slide3">
+                    <div class="content">
+                           <div class="quotes_container">
+                           <h3 class="quotes"></h3>
+                         <!--  <img src="assets/hot/hot10.png" align="left"/> --> <h4 class="author_name_white"></h4>
+                        </div> 
+                    </div> 
+                </div> 
+                
+                
+                <div id="slide4">
+                    <div class="content">
+                          <div class="quotes_container">
+                        <h3 class="quotes"></h3>
+                      <!-- <img src="assets/hot/hot10.png" align="left"/> --> <h4 class="author_name_gray"></h4>
+                    </div> 
+                    </div> 
+                </div> 
+                
+                
+                <div id="slide5">
+                    <div class="content">
+                       <div class="quotes_container">
+                        <h3 class="quotes"></h3>
+                        <!-- <img src="assets/p.png" align="left"/> --> <h4 class="author_name_white"></h4>
+                      </div> 
+                    <div id="copyright"><a href=""></a></div>  
+                    </div> 
+                    
+
+                </div> 
+
+        </section>
+        <!-- Parallax Section Ends-->
+       
+        <!-- Footer Starts -->
+       <!--  <footer>
+
+        </footer> -->
+        <!-- Footer Ends -->
+    </div>
+     
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var scr_Height = screen.availHeight;
+        var scr_Width  = screen.availWidth;
+        $("#slide1, #slide2, #slide3, #slide4, #slide5").css( "height", scr_Height );
+        $("#slide2, #slide4").css( "background-size", scr_Width );
+            $(window).scroll(function(){
+                var sticky = $('.bottomhead'),
+                    scroll = $(window).scrollTop();
+                    if (scroll >= 100) sticky.addClass('fixHeader');
+                    else sticky.removeClass('fixHeader');
+            });
+
+                var $animation_elements = $('.animation-element');
+        var $window = $(window);
+
+        function check_if_in_view() {
+          var window_height = $window.height();
+          var window_top_position = $window.scrollTop();
+          var window_bottom_position = (window_top_position + window_height);
+         
+          $.each($animation_elements, function() {
+            var $element = $(this);
+            var element_height = $element.outerHeight();
+            var element_top_position = $element.offset().top;
+            var element_bottom_position = (element_top_position + element_height);
+         
+            //check to see if this current container is within viewport
+            if ((element_bottom_position >= window_top_position) &&
+                (element_top_position <= window_bottom_position)) {
+              $element.addClass('in-view');
+            } else {
+              $element.removeClass('in-view');
+            }
+          });
+        }
+
+        $window.on('scroll resize', check_if_in_view);
+        $window.trigger('scroll');
+    });
+    </script>
+</body>
+
+</html>
